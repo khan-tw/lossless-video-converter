@@ -2,23 +2,23 @@ import AppKit
 import SwiftUI
 
 @main
-struct FrameKeepApp: App {
-    @State private var store = FrameKeepStore()
+struct LosslessVideoConverterApp: App {
+    @State private var store = LosslessVideoConverterStore()
 
     init() {
         UserDefaults.standard.register(defaults: [
-            "framekeep.autoRevealOnFinish": true
+            "losslessvideoconverter.autoRevealOnFinish": true
         ])
     }
 
     var body: some Scene {
-        WindowGroup("FrameKeep", id: "main") {
+        WindowGroup("Lossless Video Converter", id: "main") {
             ContentView(store: store)
                 .frame(minWidth: 980, minHeight: 700)
         }
         .defaultSize(width: 1180, height: 820)
         .commands {
-            FrameKeepCommands(store: store)
+            LosslessVideoConverterCommands(store: store)
         }
 
         Settings {
@@ -27,8 +27,8 @@ struct FrameKeepApp: App {
     }
 }
 
-struct FrameKeepCommands: Commands {
-    @Bindable var store: FrameKeepStore
+struct LosslessVideoConverterCommands: Commands {
+    @Bindable var store: LosslessVideoConverterStore
 
     var body: some Commands {
         CommandGroup(after: .newItem) {

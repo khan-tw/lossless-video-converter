@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Bindable var store: FrameKeepStore
+    @Bindable var store: LosslessVideoConverterStore
 
     var body: some View {
         NavigationSplitView {
@@ -31,7 +31,7 @@ struct ContentView: View {
         } detail: {
             DetailView(store: store)
         }
-        .navigationTitle("FrameKeep")
+        .navigationTitle("Lossless Video Converter")
         .toolbar {
             ToolbarItemGroup {
                 Button {
@@ -72,7 +72,7 @@ private struct EmptyStateView: View {
                 .foregroundStyle(.secondary)
             Text("Drop MOV files here")
                 .font(.headline)
-            Text("FrameKeep keeps everything on this Mac and uses the standard file browser for adding files.")
+            Text("Lossless Video Converter keeps everything on this Mac and uses the standard file browser for adding files.")
                 .foregroundStyle(.secondary)
         }
     }
@@ -117,7 +117,7 @@ private struct VideoRow: View {
 }
 
 private struct DetailView: View {
-    @Bindable var store: FrameKeepStore
+    @Bindable var store: LosslessVideoConverterStore
 
     var body: some View {
         ScrollView {
@@ -202,14 +202,14 @@ private struct DetailView: View {
 }
 
 private struct SummaryCard: View {
-    @Bindable var store: FrameKeepStore
+    @Bindable var store: LosslessVideoConverterStore
 
     var body: some View {
         GroupBox {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Local MOV to MP4 conversion")
+                        Text("Local MOV to MP4 conversion without quality loss")
                             .font(.title2.weight(.semibold))
                         Text(store.statusMessage)
                             .foregroundStyle(.secondary)

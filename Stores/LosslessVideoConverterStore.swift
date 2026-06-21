@@ -2,7 +2,7 @@ import AppKit
 import Foundation
 import Observation
 
-enum FrameKeepError: LocalizedError {
+enum LosslessVideoConverterError: LocalizedError {
     case ffmpegMissing
     case unreadableMetadata
     case ffmpegFailure(String)
@@ -12,7 +12,7 @@ enum FrameKeepError: LocalizedError {
         case .ffmpegMissing:
             return "FFmpeg was not found. Set FFMPEG_PATH or install ffmpeg in a standard location such as /opt/homebrew/bin/ffmpeg or /usr/local/bin/ffmpeg."
         case .unreadableMetadata:
-            return "FrameKeep could not read the selected video's metadata."
+            return "Lossless Video Converter could not read the selected video's metadata."
         case let .ffmpegFailure(message):
             return message
         }
@@ -21,7 +21,7 @@ enum FrameKeepError: LocalizedError {
 
 @MainActor
 @Observable
-final class FrameKeepStore {
+final class LosslessVideoConverterStore {
     var files: [VideoAsset] = []
     var selectedFileID: VideoAsset.ID?
     var outputFolderURL: URL?
@@ -249,7 +249,7 @@ final class FrameKeepStore {
         let failures = nextResults.count - successfulCount
         if failures == 0 {
             statusMessage = "Finished \(successfulCount) file\(successfulCount == 1 ? "" : "s")."
-            if UserDefaults.standard.bool(forKey: "framekeep.autoRevealOnFinish"), let latestOutputURL {
+            if UserDefaults.standard.bool(forKey: "losslessvideoconverter.autoRevealOnFinish"), let latestOutputURL {
                 NSWorkspace.shared.activateFileViewerSelecting([latestOutputURL])
             }
         } else {

@@ -21,7 +21,7 @@ actor FFmpegService {
             let durationMatch = output.firstMatch(of: /Duration:\s+(\d+):(\d+):(\d+(?:\.\d+)?)/),
             let videoMatch = output.firstMatch(of: /Video:\s*([^,]+).*?,\s*(\d{2,5})x(\d{2,5})/)
         else {
-            throw FrameKeepError.unreadableMetadata
+            throw LosslessVideoConverterError.unreadableMetadata
         }
 
         let hours = Double(durationMatch.1) ?? 0
@@ -109,7 +109,7 @@ actor FFmpegService {
                             .map(String.init)
                             .last(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
                             ?? "Conversion failed."
-                        continuation.resume(throwing: FrameKeepError.ffmpegFailure(message))
+                        continuation.resume(throwing: LosslessVideoConverterError.ffmpegFailure(message))
                     }
                 }
             }
@@ -154,7 +154,7 @@ actor FFmpegService {
                 if finished.terminationStatus == 0 || !text.isEmpty {
                     continuation.resume(returning: text)
                 } else {
-                    continuation.resume(throwing: FrameKeepError.unreadableMetadata)
+                    continuation.resume(throwing: LosslessVideoConverterError.unreadableMetadata)
                 }
             }
         }

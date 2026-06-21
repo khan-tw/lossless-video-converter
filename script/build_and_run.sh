@@ -2,9 +2,9 @@
 set -euo pipefail
 
 MODE="${1:-run}"
-APP_NAME="FrameKeep"
-BUNDLE_NAME="FrameKeep.app"
-BUNDLE_ID="com.khan.framekeep"
+APP_NAME="LosslessVideoConverter"
+BUNDLE_NAME="Lossless Video Converter.app"
+BUNDLE_ID="com.khan.losslessvideoconverter"
 MIN_SYSTEM_VERSION="14.0"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -38,7 +38,7 @@ cat >"$INFO_PLIST" <<PLIST
 <plist version="1.0">
 <dict>
   <key>CFBundleDisplayName</key>
-  <string>FrameKeep</string>
+  <string>Lossless Video Converter</string>
   <key>CFBundleExecutable</key>
   <string>$APP_NAME</string>
   <key>CFBundleIconFile</key>
@@ -46,7 +46,7 @@ cat >"$INFO_PLIST" <<PLIST
   <key>CFBundleIdentifier</key>
   <string>$BUNDLE_ID</string>
   <key>CFBundleName</key>
-  <string>FrameKeep</string>
+  <string>Lossless Video Converter</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>LSMinimumSystemVersion</key>

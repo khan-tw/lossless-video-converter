@@ -2,16 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "FrameKeep",
+    name: "LosslessVideoConverter",
     platforms: [
         .macOS(.v14)
     ],
     products: [
-        .executable(name: "FrameKeep", targets: ["FrameKeep"])
+        .executable(name: "LosslessVideoConverter", targets: ["LosslessVideoConverter"])
     ],
     targets: [
         .executableTarget(
-            name: "FrameKeep",
+            name: "LosslessVideoConverter",
             path: ".",
             exclude: [
                 ".codex",
@@ -32,9 +32,9 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "FrameKeepTests",
-            dependencies: ["FrameKeep"],
-            path: "Tests/FrameKeepTests"
+            name: "LosslessVideoConverterTests",
+            dependencies: ["LosslessVideoConverter"],
+            path: "Tests/LosslessVideoConverterTests"
         )
     ]
 )

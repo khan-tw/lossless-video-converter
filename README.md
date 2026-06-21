@@ -1,6 +1,6 @@
-# FrameKeep
+# Lossless Video Converter
 
-FrameKeep is a native macOS app for local `MOV` to `MP4` conversion.
+Lossless Video Converter is a native macOS app for local `MOV` to `MP4` conversion.
 
 ## Features
 

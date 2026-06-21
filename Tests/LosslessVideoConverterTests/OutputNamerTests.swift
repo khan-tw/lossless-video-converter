@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import FrameKeep
+@testable import LosslessVideoConverter
 
 struct OutputNamerTests {
     @Test func generatesIncrementedNameWhenNeeded() throws {

@@ -13,7 +13,7 @@ enum FFmpegLocator {
         ].compactMap { $0 }
 
         guard let first = candidates.first(where: { FileManager.default.isExecutableFile(atPath: $0.path) }) else {
-            throw FrameKeepError.ffmpegMissing
+            throw LosslessVideoConverterError.ffmpegMissing
         }
 
         return first
