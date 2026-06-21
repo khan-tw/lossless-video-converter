@@ -1,0 +1,8 @@
+.DS_Store
+.build/
+.swiftpm/
+.codex/
+.npm-cache/
+dist-native/
+*.log
+*.pid
