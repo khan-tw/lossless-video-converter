@@ -14,9 +14,10 @@ let package = Package(
             name: "LosslessVideoConverter",
             path: ".",
             exclude: [
-                ".codex",
+                "dist-native",
                 ".gitignore",
                 "LICENSE",
+                "Open Lossless Video Converter.command",
                 "README.md",
                 "build",
                 "script",

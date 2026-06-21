@@ -99,6 +99,14 @@ final class LosslessVideoConverterStore {
         return true
     }
 
+    func addDroppedURLs(_ urls: [URL]) -> Bool {
+        let fileURLs = urls.filter(\.isFileURL)
+        guard !fileURLs.isEmpty else { return false }
+
+        Task { await addFiles(fileURLs) }
+        return true
+    }
+
     func removeSelection() {
         guard let currentSelection = selectedFileID,
               let selectedAsset = files.first(where: { $0.id == currentSelection }) else { return }
